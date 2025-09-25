@@ -1,0 +1,324 @@
+/* Genel Gövde Stili */
+body {
+  background-color: #1e1e32;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Tüm Haberler Sayfası Özel Stilleri */
+.hero .gradient-text {
+  background: linear-gradient(135deg, #7e5bff 0%, #55f7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Arama ve Filtre Alanı */
+.search-filter {
+  display: flex;
+  gap: 15px;
+  max-width: 600px;
+  margin: 30px auto 0;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid #2d2d42;
+  background: rgba(30, 30, 50, 0.5);
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #7e5bff;
+  box-shadow: 0 0 0 2px rgba(126, 91, 255, 0.2);
+}
+
+.category-filter {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #2d2d42;
+  background: rgba(30, 30, 50, 0.5);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.category-filter:hover {
+  border-color: #7e5bff;
+}
+
+/* Kontrol Bölümü */
+.news-controls {
+  background: rgba(30, 30, 50, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid #2d2d42;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.sort-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.sort-options {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.sort-label {
+  color: #a1a1c2;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.sort-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sort-btn {
+  background: rgba(45, 45, 66, 0.5);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: #a1a1c2;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.sort-btn:hover {
+  background: rgba(126, 91, 255, 0.2);
+}
+
+.sort-btn.active {
+  background: linear-gradient(135deg, #7e5bff 0%, #55f7ff 100%);
+  color: white;
+}
+
+/* Görünüm Butonları */
+.view-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.view-btn {
+  background: rgba(45, 45, 66, 0.5);
+  border: none;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: #a1a1c2;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.view-btn:hover {
+  background: rgba(126, 91, 255, 0.2);
+}
+
+.view-btn.active {
+  background: rgba(126, 91, 255, 0.2);
+  color: #7e5bff;
+}
+
+/* Haber Grid */
+.news-grid.expanded {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  padding: 20px 0;
+}
+
+/* Daha Fazla Yükle Butonu */
+.load-more-section {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.see-all-button {
+  background-color: #5c67f2;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.see-all-button:hover {
+  background-color: #4b52db;
+}
+
+/* Alternatif Yükleme Butonu (Eğer kullanılıyorsa) */
+.load-more-btn {
+  position: relative;
+  overflow: hidden;
+  background: rgba(30, 30, 50, 0.5);
+  border: 1px solid #7e5bff;
+  padding: 16px 32px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.4s;
+  z-index: 1;
+}
+
+.btn-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #7e5bff 0%, #55f7ff 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.load-more-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(126, 91, 255, 0.2);
+}
+
+.load-more-btn:hover .btn-gradient {
+  opacity: 1;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+}
+
+.btn-icon svg {
+  transition: transform 0.3s;
+}
+
+.load-more-btn:hover .btn-icon svg {
+  transform: translateY(3px);
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  max-width: 300px;
+  height: 4px;
+  background: rgba(45, 45, 66, 0.5);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #7e5bff 0%, #55f7ff 100%);
+  transition: width 0.4s ease-out;
+}
+
+/* Pulse Efekti */
+.pulse-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #7e5bff 0%, #55f7ff 100%);
+  z-index: -2;
+  opacity: 0;
+  border-radius: 50px;
+}
+
+.pulse-btn:hover::before {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 768px) {
+  .search-filter {
+    flex-direction: column;
+  }
+
+  .sort-filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .sort-options,
+  .sort-buttons {
+    width: 100%;
+  }
+
+  .sort-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .news-grid.expanded {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .load-more-btn {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-controls {
+    padding: 15px;
+  }
+
+  .sort-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .load-more-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

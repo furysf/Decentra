@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DecentraNews | Web3 Haber Platformu</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-icon">D</div>
+        <h1>Decentra<span>News</span></h1>
+      </div>
+      <button id="connectButton" class="connect-wallet">
+        <span id="walletStatus">Web3'e Bağlan</span>
+      </button>
+      <div id="walletInfo" class="wallet-info" style="display: none;">
+        <span id="walletAddress"></span>
+        <span id="walletBalance"></span>
+        <button id="disconnectButton" class="disconnect-wallet">Çıkış</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="badge">Web3 Haber Platformu</span>
+        <h2>Haber Yap, <br>Token Kazan</h2>
+        <p>Blockchain teknolojisiyle doğruluğu kanıtlanmış haberler oluşturun</p>
+        <div class="hero-buttons">
+          <button class="primary-btn">Haber Gönder</button>
+          <button class="secondary-btn">Tokenomics</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="submit-news-section container">
+        <h3>Yeni Haber Gönder</h3>
+        <form id="newsForm" class="news-form">
+          <input type="text" id="newsTitle" placeholder="Haber Başlığı" required />
+          <textarea id="newsContent" placeholder="Haber İçeriği" required></textarea>
+          
+          <label for="modelSelect">Model Seç:</label>
+          <select id="modelSelect" required>
+            <option value="logistic">Logistic Regression</option>
+            <option value="rf">Random Forest</option>
+            <option value="svm">SVM</option>
+            <option value="naive">Naive Bayes</option>
+            <option value="knn">K-Nearest Neighbors</option>
+
+
+
+          </select>
+        
+          <button type="button" id="submitNews" class="primary-btn">Gönder</button>
+        </form>
+      </section>
+
+    <section class="news-section">
+      <h3>Trend Haberler</h3>
+      <div class="news-grid">
+
+        <article class="news-card">
+          <div class="card-header">
+            <span class="truth-score high">%94 Verified</span>
+            <span class="category">Blockchain</span>
+          </div>
+          <h4>Ethereum'un Yükselişi Devam Ediyor</h4>
+          <p>ETH 2.0 güncellemesiyle birlikte fiyatlar yükselmeye devam ediyor</p>
+          <div class="card-footer">
+            <div class="author">
+              <div class="author-avatar"></div>
+              <span>Anonymous</span>
+            </div>
+            <button class="verify-btn">Verify</button>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="card-header">
+            <span class="truth-score medium">%88 Verified</span>
+            <span class="category">NFT</span>
+          </div>
+          <h4>NFT Gazeteciliği Yeni Trend</h4>
+          <p>Haberlerin NFT olarak yayınlanması yeni bir iş modeli oluşturuyor</p>
+          <div class="card-footer">
+            <div class="author">
+              <div class="author-avatar"></div>
+              <span>Anonymous</span>
+            </div>
+            <button class="verify-btn">Verify</button>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="see-all-container" style="text-align: center; margin-top: 20px;">
+        <button onclick="window.location.href='all-news.html'" class="see-all-button" style="padding: 10px 20px; background-color: #5c67f2; color: white; border: none; border-radius: 8px; font-weight: 500; cursor: pointer;">
+          Tüm Haberleri Gör
+        </button>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

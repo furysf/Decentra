@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tüm Haberler | DecentraNews</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js"></script>
+  <style>
+    body {
+      background-color: #1e1e32;
+      color: white;
+    }
+
+    .see-all-button {
+      background-color: #5c67f2;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .see-all-button:hover {
+      background-color: #4b52db;
+    }
+
+    .search-filter {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .search-input {
+      padding: 10px;
+      font-size: 16px;
+      flex: 1;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .category-filter {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background-color: white;
+      color: #1e1e32;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-icon">D</div>
+        <h1>Decentra<span>News</span></h1>
+      </div>
+      <button id="connectButton" class="connect-wallet">
+        <span id="walletStatus">Web3'e Bağlan</span>
+      </button>
+      <div id="walletInfo" class="wallet-info" style="display: none;">
+        <span id="walletAddress"></span>
+        <span id="walletBalance"></span>
+        <button id="disconnectButton" class="disconnect-wallet">Çıkış</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="badge">Web3 Haber Platformu</span>
+        <h2>Tüm <span class="gradient-text">Haberler</span></h2>
+        <p>Topluluk tarafından doğrulanmış, blockchain'de kayıtlı haberlerin tam listesi</p>
+        <div class="search-filter">
+          <input type="text" id="searchInput" placeholder="Haber ara..." class="search-input" />
+          <select id="categoryFilter" class="category-filter">
+            <option value="all">Tüm Kategoriler</option>
+            <option value="business">Business</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="politics">Politics</option>
+            <option value="sport">Sport</option>
+            <option value="tech">Tech</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="news-section">
+      <div class="news-controls">
+        <div class="sort-filter-container">
+          <div class="sort-options">
+            <span class="sort-label">Sırala:</span>
+            <div class="sort-buttons">
+              <button class="sort-btn active" data-sort="newest">En Yeni</button>
+              <button class="sort-btn" data-sort="verified">Doğruluk</button>
+              <button class="sort-btn" data-sort="bounty">Ödül</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="newsGrid" class="news-grid expanded"></div>
+
+      
+
+     
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script type="module" src="all-news.js"></script>
+</body>
+</html>
